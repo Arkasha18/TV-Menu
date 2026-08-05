@@ -1,0 +1,29 @@
+# Локальные инструменты и кэш
+tools/
+tools/gradle-home/
+.gradle/
+**/.gradle/
+**/.kotlin/
+**/build/
+TvQuickMenu/app/build/
+TvQuickMenu/build/
+TvQuickMenu/local.properties
+
+# Артефакты сборки
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Справочный APK и дампы с устройств
+ref-tvquickactions/
+tv-window.xml
+TV-Menu-debug.apk
+
+# IDE / ОС
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+local.properties.bak

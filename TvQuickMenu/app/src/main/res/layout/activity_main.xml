@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TV Меню"
+            android:textColor="@color/text"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Настройка кнопки пульта, меню поверх окон, таймер сна и затемнение."
+            android:textColor="@color/muted"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_panel"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/statusOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/statusAccessibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/statusHotkey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/statusTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/muted"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/statusDim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/muted"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/statusAdb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/text"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/programHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/accent"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnOverlayPermission"
+            style="@style/TvButton"
+            android:text="1. Разрешить показ поверх окон" />
+
+        <Button
+            android:id="@+id/btnAccessibility"
+            style="@style/TvButton"
+            android:text="2. Включить службу кнопок" />
+
+        <Button
+            android:id="@+id/btnRestrictedSettings"
+            style="@style/TvButton"
+            android:text="Если служба отскакивает: разрешить ограниченные настройки" />
+
+        <Button
+            android:id="@+id/btnProgramKey"
+            style="@style/TvButton"
+            android:text="3. Запрограммировать кнопку пульта" />
+
+        <Button
+            android:id="@+id/btnCheckAdb"
+            style="@style/TvButton"
+            android:text="Дополнительно: проверить локальный ADB" />
+
+        <Button
+            android:id="@+id/btnTestSleep"
+            style="@style/TvButton"
+            android:text="Проверить усыпление сейчас" />
+
+        <Button
+            android:id="@+id/btnClearKey"
+            style="@style/TvButton"
+            android:text="Сбросить кнопку" />
+
+        <Button
+            android:id="@+id/btnOpenMenu"
+            style="@style/TvButton"
+            android:text="Открыть меню сейчас" />
+
+        <Button
+            android:id="@+id/btnCancelSleep"
+            style="@style/TvButton"
+            android:text="Отменить таймер сна" />
+    </LinearLayout>
+</ScrollView>

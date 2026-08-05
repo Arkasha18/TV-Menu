@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV Меню</string>
+    <string name="accessibility_service_description">Обрабатывает кнопку меню и сохраняет обычное короткое нажатие ОК на Android TV.</string>
+    <string name="notification_channel_name">Фоновые службы меню</string>
+    <string name="overlay_notification">Меню TV активно</string>
+    <string name="dim_notification">Затемнение экрана активно</string>
+</resources>
