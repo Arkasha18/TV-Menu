@@ -8,10 +8,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlin.concurrent.thread
@@ -64,20 +66,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
         }
 
-        findViewById<Button>(R.id.btnRestrictedSettings).setOnClickListener {
-            // На Google TV приложения не из магазина часто блокируют службу,
-            // пока не разрешены «ограниченные настройки» в карточке приложения.
-            Toast.makeText(
-                this,
-                "В карточке приложения откройте меню и включите «Разрешить ограниченные настройки», затем снова службу кнопок.",
-                Toast.LENGTH_LONG
-            ).show()
-            startActivity(
-                Intent(
-                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    Uri.parse("package:$packageName")
-                )
-            )
+        findViewById<Button>(R.id.btnFixAccessibility).setOnClickListener {
+            showAccessibilityFixDialog()
         }
 
         findViewById<Button>(R.id.btnProgramKey).setOnClickListener {
@@ -205,7 +195,7 @@ class MainActivity : AppCompatActivity() {
             if (accessibilityOk) {
                 "Служба кнопок: включена"
             } else {
-                "Служба кнопок: выключена. Если переключатель отскакивает — разрешите ограниченные настройки."
+                "Служба кнопок: выключена. Если переключатель отскакивает — откройте инструкцию ниже."
             }
         statusAccessibility.setTextColor(
             ContextCompat.getColor(
@@ -236,4 +226,51 @@ class MainActivity : AppCompatActivity() {
         ) ?: return false
         return enabled.split(':').any { it.equals(expected, ignoreCase = true) }
     }
+
+    private fun showAccessibilityFixDialog() {
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_fix_accessibility, null)
+        val status = view.findViewById<TextView>(R.id.fixStatus)
+        val btnActivate = view.findViewById<Button>(R.id.btnActivateNow)
+        val btnClose = view.findViewById<Button>(R.id.btnCloseFix)
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(view)
+            .setCancelable(true)
+            .create()
+
+        btnClose.setOnClickListener { dialog.dismiss() }
+
+        btnActivate.setOnClickListener {
+            btnActivate.isEnabled = false
+            status.setTextColor(ContextCompat.getColor(this, R.color.accent))
+            status.text = "Статус: подключаюсь к локальному ADB…"
+            thread {
+                val result = AccessibilityFix.enableViaLocalAdb(this)
+                runOnUiThread {
+                    btnActivate.isEnabled = true
+                    status.setTextColor(
+                        ContextCompat.getColor(
+                            this,
+                            if (result.ok) R.color.ok else R.color.danger
+                        )
+                    )
+                    status.text = "Статус: ${result.message}"
+                    refreshStatus()
+                    Toast.makeText(
+                        this,
+                        if (result.ok) "Служба включена" else "Не удалось активировать",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+
+        dialog.show()
+        dialog.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.72f).toInt(),
+            (resources.displayMetrics.heightPixels * 0.85f).toInt()
+        )
+        btnActivate.requestFocus()
+    }
 }
+

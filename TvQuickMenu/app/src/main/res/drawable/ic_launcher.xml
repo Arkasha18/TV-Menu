@@ -4,7 +4,17 @@
     android:height="48dp"
     android:viewportWidth="48"
     android:viewportHeight="48">
+    <!-- Fallback icon if density PNGs are missing -->
+    <path
+        android:fillColor="#101820"
+        android:pathData="M4,4h40v40h-40z" />
+    <path
+        android:fillColor="#1C2A38"
+        android:pathData="M16,8h16c1.1,0 2,0.9 2,2v24c0,1.1 -0.9,2 -2,2h-16c-1.1,0 -2,-0.9 -2,-2v-24c0,-1.1 0.9,-2 2,-2z" />
     <path
         android:fillColor="#3DA9FC"
-        android:pathData="M8,12h32v6h-32zM8,21h32v6h-32zM8,30h20v6h-20z" />
+        android:pathData="M24,22m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+    <path
+        android:fillColor="#F2F5F8"
+        android:pathData="M19,12h10v2h-10zM19,33h4v2h-4zM25,33h4v2h-4z" />
 </vector>

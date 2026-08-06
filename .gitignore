@@ -2,6 +2,7 @@
 tools/
 tools/gradle-home/
 .gradle/
+.gradle-ci/
 **/.gradle/
 **/.kotlin/
 **/build/
@@ -18,8 +19,10 @@ TvQuickMenu/local.properties
 
 # Справочный APK и дампы с устройств
 ref-tvquickactions/
+_h9_ref/
 tv-window.xml
 TV-Menu-debug.apk
+TV-Menu-v*.apk
 
 # IDE / ОС
 .idea/

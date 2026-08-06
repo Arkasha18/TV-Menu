@@ -1,0 +1,48 @@
+version: 2
+
+updates:
+  - package-ecosystem: gradle
+    directory: /TvQuickMenu
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:00"
+      timezone: Europe/Moscow
+    open-pull-requests-limit: 5
+    reviewers:
+      - Arkasha18
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: com.android.application
+      - dependency-name: gradle-wrapper
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:15"
+      timezone: Europe/Moscow
+    open-pull-requests-limit: 3
+    reviewers:
+      - Arkasha18
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: eclipse-temurin
+        update-types:
+          - version-update:semver-major
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "04:30"
+      timezone: Europe/Moscow
+    open-pull-requests-limit: 3
+    reviewers:
+      - Arkasha18
+    labels:
+      - dependencies

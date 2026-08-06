@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_panel"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Служба отскакивает — что делать"
+            android:textColor="@color/text"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="4dp"
+            android:text="Когда нажимать эту кнопку:\nесли в «Специальных возможностях» переключатель TV Меню включается и сразу выключается.\n\nОбычная кнопка «2. Включить службу кнопок» в этом случае не поможет — система блокирует приложение, установленное не из магазина."
+            android:textColor="@color/muted"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Что нужно от вас заранее"
+            android:textColor="@color/text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4dp"
+            android:text="1. Откройте Параметры → Для разработчиков.\n2. Включите «Отладка по USB» (или «Отладка по Wi‑Fi»).\n3. Если появится запрос «Разрешить отладку» — нажмите Разрешить / Всегда.\n4. Вернитесь в TV Меню и нажмите кнопку активации ниже.\n\nПК не нужен. Приложение само выдаст разрешение и включит службу через локальный ADB."
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/fixStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Статус: ожидание"
+            android:textColor="@color/accent"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnActivateNow"
+            style="@style/TvButton"
+            android:layout_marginTop="16dp"
+            android:text="Активировать службу сейчас" />
+
+        <Button
+            android:id="@+id/btnCloseFix"
+            style="@style/TvButton"
+            android:text="Закрыть" />
+    </LinearLayout>
+</ScrollView>

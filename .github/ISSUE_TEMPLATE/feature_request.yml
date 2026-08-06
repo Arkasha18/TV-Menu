@@ -1,0 +1,23 @@
+name: Предложение функции
+description: Идея по улучшению TV Меню
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую задачу решаем
+      description: Опишите сценарий на Android TV.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Предложение
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Альтернативы
+      description: Что уже пробовали или чем можно заменить.

@@ -103,9 +103,9 @@
             android:text="2. Включить службу кнопок" />
 
         <Button
-            android:id="@+id/btnRestrictedSettings"
+            android:id="@+id/btnFixAccessibility"
             style="@style/TvButton"
-            android:text="Если служба отскакивает: разрешить ограниченные настройки" />
+            android:text="Если служба отскакивает — открыть инструкцию и активировать" />
 
         <Button
             android:id="@+id/btnProgramKey"
