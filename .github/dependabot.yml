@@ -14,8 +14,17 @@ updates:
     labels:
       - dependencies
     ignore:
+      # AGP and Gradle wrapper must be upgraded together after compatibility checks.
       - dependency-name: com.android.application
       - dependency-name: gradle-wrapper
+      # Kotlin 2.4+ needs compilerOptions DSL migration and should ride with AGP upgrades.
+      - dependency-name: org.jetbrains.kotlin.android
+        update-types:
+          - version-update:semver-major
+      # core-ktx 1.19+ requires AGP 9.1+.
+      - dependency-name: "androidx.core:core-ktx"
+        versions:
+          - ">=1.19.0"
 
   - package-ecosystem: docker
     directory: /
