@@ -58,7 +58,7 @@ dependencies {
     implementation("com.google.android.material:material:1.14.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.2")
     implementation("androidx.leanback:leanback:1.0.0")
-    implementation("dev.mobile:dadb:1.2.9") {
+    implementation("dev.mobile:dadb:2.0.0") {
         exclude(group = "org.junit.jupiter")
         exclude(group = "org.junit.platform")
         exclude(group = "org.junit.vintage")
