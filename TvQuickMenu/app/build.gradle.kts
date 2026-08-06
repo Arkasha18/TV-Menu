@@ -56,7 +56,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.14.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.2")
     implementation("androidx.leanback:leanback:1.0.0")
     implementation("dev.mobile:dadb:2.0.0") {
         exclude(group = "org.junit.jupiter")
