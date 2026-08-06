@@ -46,6 +46,7 @@ jobs:
             --env GRADLE_USER_HOME=/workspace/.gradle-ci \
             tv-menu-build:ci \
             bash -euo pipefail -c '
+              chmod +x ./TvQuickMenu/gradlew
               ./TvQuickMenu/gradlew -p TvQuickMenu --no-daemon --stacktrace \
                 lintDebug \
                 assembleDebug
