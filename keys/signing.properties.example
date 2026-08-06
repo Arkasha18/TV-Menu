@@ -1,0 +1,5 @@
+TV_MENU_STORE_FILE=D:/TV-Development/keys/adminrunet-production.p12
+TV_MENU_STORE_TYPE=PKCS12
+TV_MENU_STORE_PASSWORD=
+TV_MENU_KEY_ALIAS=adminrunet-h9-cluster
+TV_MENU_KEY_PASSWORD=

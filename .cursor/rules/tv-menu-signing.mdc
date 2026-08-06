@@ -1,0 +1,41 @@
+---
+description: How to sign TV Menu release APKs with the production keystore
+alwaysApply: true
+---
+
+# TV Menu release signing
+
+For publication (4PDA / GitHub Releases) always build a **signed release** APK, not debug.
+
+## Local secrets (never commit)
+
+- Keystore: `D:/TV-Development/keys/adminrunet-production.p12` (copied from `D:/H9-Development/Keys`)
+- Properties: `D:/TV-Development/keys/signing.properties`
+- Also loaded via `GRADLE_USER_HOME`: `D:/TV-Development/tools/gradle-home/gradle.properties`
+
+Required properties:
+
+```
+TV_MENU_STORE_FILE=D:/TV-Development/keys/adminrunet-production.p12
+TV_MENU_STORE_TYPE=PKCS12
+TV_MENU_STORE_PASSWORD=<from keys/signing.properties>
+TV_MENU_KEY_ALIAS=adminrunet-h9-cluster
+TV_MENU_KEY_PASSWORD=<from keys/signing.properties>
+```
+
+## Build
+
+```bat
+build-release.bat
+```
+
+or:
+
+```bat
+build.bat assembleRelease
+```
+
+Output: `TvQuickMenu/app/build/outputs/apk/release/app-release.apk`
+
+Verify with `apksigner` / `jarsigner` that the signer is the production cert, not the debug key.
+Do not upload unsigned or debug-signed APKs as the main 4PDA/GitHub download.
