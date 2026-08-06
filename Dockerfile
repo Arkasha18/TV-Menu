@@ -50,4 +50,4 @@ RUN set +o pipefail \
 
 WORKDIR /workspace
 
-CMD ["./TvQuickMenu/gradlew", "-p", "TvQuickMenu", "--no-daemon", "assembleDebug", "lintDebug"]
+CMD ["bash", "-euo", "pipefail", "-c", "chmod +x ./TvQuickMenu/gradlew && ./TvQuickMenu/gradlew -p TvQuickMenu --no-daemon assembleDebug lintDebug"]
