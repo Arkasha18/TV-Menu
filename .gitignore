@@ -10,6 +10,12 @@ TvQuickMenu/app/build/
 TvQuickMenu/build/
 TvQuickMenu/local.properties
 
+# Подпись (секреты и keystore)
+keys/*.p12
+keys/*.jks
+keys/*.keystore
+keys/signing.properties
+
 # Артефакты сборки
 *.apk
 *.ap_

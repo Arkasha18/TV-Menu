@@ -36,6 +36,16 @@
 
 ## Сборка
 
+### Signed release (для 4PDA / GitHub Releases)
+
+Нужен локальный keystore (не в git). См. `keys/README.md`.
+
+```bat
+build-release.bat
+```
+
+APK: `TvQuickMenu\app\build\outputs\apk\release\app-release.apk`
+
 ### Docker (как в CI)
 
 ```bash

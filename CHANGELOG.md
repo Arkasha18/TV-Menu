@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- production-signed release APK для публикации на 4PDA / GitHub;
+- `build-release.bat` и локальная конфигурация подписи (keystore не в git).
+
 ## 1.1.0
 
 - иконка и баннер приложения;
