@@ -110,4 +110,5 @@ dependencies {
         exclude(group = "org.junit.vintage")
         exclude(group = "junit")
     }
+    testImplementation("junit:junit:4.13.2")
 }

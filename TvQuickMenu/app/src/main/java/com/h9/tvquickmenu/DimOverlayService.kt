@@ -39,7 +39,7 @@ class DimOverlayService : Service() {
         return NotificationCompat.Builder(this, TvQuickMenuApp.CHANNEL_ID)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.dim_notification) + ": $level/5")
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_notification)
             .setOngoing(true)
             .build()
     }
