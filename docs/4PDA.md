@@ -52,7 +52,7 @@ TV Меню
 ## Версия *
 
 ```
-1.2.0
+1.2.1
 ```
 
 ---
@@ -159,6 +159,11 @@ Root не нужен. Нужны: показ поверх окон и служб
 ## Изменения
 
 ```
+1.2.1:
+• исправлен переход к настройкам службы кнопок на TV-прошивках без отдельного экрана специальных возможностей;
+• локальная ADB-активация сохраняет другие включённые службы и корректно работает на Android 9–12;
+• новая TV-иконка и улучшенная совместимость с OEM-лаунчерами.
+
 1.2.0:
 • production-signed release APK;
 • сборка и публикация с GitHub Releases.
@@ -216,7 +221,7 @@ https://github.com/Arkasha18/TV-Menu/releases/latest
 Прямая:
 
 ```
-https://github.com/Arkasha18/TV-Menu/releases/download/v1.2.0/TV-Menu-v1.2.0-release.apk
+https://github.com/Arkasha18/TV-Menu/releases/download/v1.2.1/TV-Menu-v1.2.1-release.apk
 ```
 
 ---
@@ -233,5 +238,5 @@ https://github.com/Arkasha18/TV-Menu/releases/download/v1.2.0/TV-Menu-v1.2.0-rel
 2. **Домашняя страница** = GitHub
 3. **Имя пакета** = `com.h9.tvquickmenu`
 4. Google Play пусто — ок, но источник указан
-5. Версия **1.2.0**, ссылка на **signed** release
+5. Версия **1.2.1**, ссылка на **signed** release
 6. Особенности: только **`[ATV]`**
