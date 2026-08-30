@@ -1,5 +1,6 @@
 package com.h9.tvquickmenu
 
+import android.content.ActivityNotFoundException
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnAccessibility).setOnClickListener {
-            startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+            openAccessibilitySettings()
         }
 
         findViewById<Button>(R.id.btnFixAccessibility).setOnClickListener {
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                     "Сначала включите службу «TV Меню»",
                     Toast.LENGTH_LONG
                 ).show()
-                startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+                openAccessibilitySettings()
                 return@setOnClickListener
             }
             prefs.programmingMode = true
@@ -180,6 +181,39 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.dispatchKeyEvent(event)
+    }
+
+    private fun openAccessibilitySettings() {
+        if (tryOpenSettings(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))) {
+            return
+        }
+
+        if (tryOpenSettings(Intent(Settings.ACTION_SETTINGS))) {
+            Toast.makeText(
+                this,
+                "Откройте «Специальные возможности» и включите «TV Меню»",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        Toast.makeText(
+            this,
+            "Эта прошивка не открывает системные настройки. Используйте активацию ниже.",
+            Toast.LENGTH_LONG
+        ).show()
+        showAccessibilityFixDialog()
+    }
+
+    private fun tryOpenSettings(intent: Intent): Boolean {
+        return try {
+            startActivity(intent)
+            true
+        } catch (_: ActivityNotFoundException) {
+            false
+        } catch (_: SecurityException) {
+            false
+        }
     }
 
     private fun refreshStatus() {

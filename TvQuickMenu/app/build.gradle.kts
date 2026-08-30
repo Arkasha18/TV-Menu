@@ -37,8 +37,8 @@ android {
         applicationId = "com.h9.tvquickmenu"
         minSdk = 28
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.2.0"
+        versionCode = 4
+        versionName = "1.2.1"
     }
 
     signingConfigs {
@@ -110,4 +110,5 @@ dependencies {
         exclude(group = "org.junit.vintage")
         exclude(group = "junit")
     }
+    testImplementation("junit:junit:4.13.2")
 }
